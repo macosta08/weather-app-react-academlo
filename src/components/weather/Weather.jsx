@@ -16,13 +16,9 @@ export const Weather = ({geolocation, setBackgroundImg}) => {
 
 	if(!loading) setBackgroundImg(weatherConditions[weather[0].main].bckgImg);
 
-	useEffect(() => {
-		console.log('refresca la página');
-	}, [])
-
-	useEffect(() => {console.log('cambia data')}, [data]);
+	useEffect(() => {}, [data]);
 	
-	useEffect(() => {console.log('cambia temIsFahrenheit')}, [temIsFahrenheit]);
+	useEffect(() => {}, [temIsFahrenheit]);
 
 	const convertToCelciusOrFah = (celsius) => {
 		let fahrenheit = (celsius * 9/5 + 32).toFixed(2);
@@ -37,7 +33,7 @@ export const Weather = ({geolocation, setBackgroundImg}) => {
 		}
 	};
 	return (
-		<div>
+		<div className='container-weather'>
 			{error && <strong>Error: {JSON.stringify(error)}</strong>}
 			{loading && <Spinner animation="border" />}
 			{!loading &&
@@ -46,7 +42,7 @@ export const Weather = ({geolocation, setBackgroundImg}) => {
 					<p>{sys.country} / { name}</p>
 					<div>
 						<div className="form-check form-switch form-check-degree">
-							<label className="form-check-label display-3" htmlFor="flexSwitchCheckChecked">{tempCelciusOrFahrenheit === 0 ? main.temp : tempCelciusOrFahrenheit}{typeTemp}</label>			
+							<label className="form-check-label display-1" htmlFor="flexSwitchCheckChecked">{tempCelciusOrFahrenheit === 0 ? main.temp : tempCelciusOrFahrenheit}{typeTemp}</label>			
 							<input className="form-check-input" type="checkbox" onChange={() => convertToCelciusOrFah(main.temp)} id="flexSwitchCheckChecked" defaultChecked />
 						</div>
 					</div>

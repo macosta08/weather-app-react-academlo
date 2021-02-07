@@ -7,3 +7,8 @@
 label {
   padding-right: 35px;
 }
+
+.container-weather {
+  background-color: #282c34ab;
+  padding: 20px;
+}

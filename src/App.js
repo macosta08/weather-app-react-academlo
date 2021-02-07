@@ -3,13 +3,10 @@ import "./App.css";
 import { Geolocation } from "./components/geolocation/Geolocation";
 
 function App() {
-  const [backgroundImg, setBackgroundImg] = useState("url(./img/Clear.jpg)");
+  const [backgroundImg, setBackgroundImg] = useState("");
   return (
     <div className="App">
-      <div
-        className="App-weather"
-        style={{ backgroundImage: backgroundImg }}
-      >
+      <div className="App-weather" style={{ backgroundImage: backgroundImg }}>
         <Geolocation setBackgroundImg={setBackgroundImg} />
       </div>
     </div>

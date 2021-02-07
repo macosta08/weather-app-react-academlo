@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Weather } from '../weather/Weather';
 import Spinner from 'react-bootstrap/Spinner';
 
-export const Geolocation = ({setClimateColor}) => {
+export const Geolocation = ({setBackgroundImg}) => {
 	const [geolocation, setGeolocation] = useState({});
 	const [ifGeolocation, setIfGeolocation] = useState(false)
 	function geoFindMe() {
@@ -29,11 +29,15 @@ export const Geolocation = ({setClimateColor}) => {
 		}
 
 	  }
-	geoFindMe();  
+
+	  useEffect(() => {
+		geoFindMe();
+	  }, [])
+	  
 	return (
 		<div>
 			{!ifGeolocation && <Spinner animation="border" />}
-			{ ifGeolocation && <Weather geolocation={geolocation} setClimateColor={setClimateColor}/>}
+			{ ifGeolocation && <Weather geolocation={geolocation} setBackgroundImg={setBackgroundImg}/>}
 		</div>
 	)
 }

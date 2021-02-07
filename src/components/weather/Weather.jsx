@@ -4,7 +4,7 @@ import { weatherConditions } from '../../utils/weatherConditions';
 import Spinner from 'react-bootstrap/Spinner';
 import './weather.css';
 
-export const Weather = ({geolocation, setClimateColor}) => {
+export const Weather = ({geolocation, setBackgroundImg}) => {
 
 	const [tempCelciusOrFahrenheit, setTempCelciusOrFahrenheit] = useState(0);
 	const [temIsFahrenheit, setTemIsFahrenheit] = useState(false);
@@ -14,7 +14,7 @@ export const Weather = ({geolocation, setClimateColor}) => {
 	const {data, loading, error} = useFetch(lat, long);
 	const { name, sys, weather, main } = !!data && data; 
 
-	if(!loading) setClimateColor(weatherConditions[weather[0].main].color);
+	if(!loading) setBackgroundImg(weatherConditions[weather[0].main].bckgImg);
 
 	useEffect(() => {
 		console.log('refresca la página');

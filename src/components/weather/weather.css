@@ -1,0 +1,9 @@
+.form-check-degree {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  padding-right: 35px;
+}

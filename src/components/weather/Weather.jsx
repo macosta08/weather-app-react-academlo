@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useFetch } from '../../hook/useFeth';
+import { useFetch } from '../../hook/useFetch';
 import { weatherConditions } from '../../utils/weatherConditions';
 import Spinner from 'react-bootstrap/Spinner';
 import './weather.css';
@@ -11,8 +11,7 @@ export const Weather = ({geolocation, setClimateColor}) => {
 	const [typeTemp, setTypeTemp] = useState(' °C')
 	const {lat, long} = geolocation;
 
-	const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=13c36e252ca697f7355f5bc8ac79b77a`;
-	const {data, loading, error} = useFetch(url);
+	const {data, loading, error} = useFetch(lat, long);
 	const { name, sys, weather, main } = !!data && data; 
 
 	if(!loading) setClimateColor(weatherConditions[weather[0].main].color);

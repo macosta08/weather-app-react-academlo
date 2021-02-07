@@ -16,9 +16,13 @@ export const Weather = ({geolocation, setClimateColor}) => {
 
 	if(!loading) setClimateColor(weatherConditions[weather[0].main].color);
 
-	useEffect(() => {}, [data]);
+	useEffect(() => {
+		console.log('refresca la página');
+	}, [])
+
+	useEffect(() => {console.log('cambia data')}, [data]);
 	
-	useEffect(() => {}, [temIsFahrenheit]);
+	useEffect(() => {console.log('cambia temIsFahrenheit')}, [temIsFahrenheit]);
 
 	const convertToCelciusOrFah = (celsius) => {
 		let fahrenheit = (celsius * 9/5 + 32).toFixed(2);

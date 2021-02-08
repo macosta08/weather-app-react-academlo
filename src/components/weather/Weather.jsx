@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useFetchWeather } from '../../hook/useFetchWeather';
 import { weatherConditions } from '../../utils/weatherConditions';
+import { URL } from '../../utils/apiWeatherConfigFile';
 import Spinner from 'react-bootstrap/Spinner';
 import './weather.css';
 
@@ -47,7 +48,7 @@ export const Weather = ({geolocation, setBackgroundImg}) => {
 							<input className="form-check-input" type="checkbox" onChange={() => convertToCelciusOrFah(main.temp)} id="flexSwitchCheckChecked" defaultChecked />
 						</div>
 					</div>
-					<img src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt={weather[0].description}/>
+					<img src={`${URL}/img/wn/${weather[0].icon}@2x.png`} alt={weather[0].description}/>
 					<p>{weather[0].description}</p>
 				</div>
 			}

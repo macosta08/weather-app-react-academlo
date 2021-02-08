@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
+import { APIURL, APIKEY } from "../utils/apiWeatherConfigFile";
 
-const APIURL = "https://api.openweathermap.org";
-const APIKEY = "13c36e252ca697f7355f5bc8ac79b77a";
 export const useFetchWeather = (lat, long, units = "metric") => {
   const url = `${APIURL}/data/2.5/weather?lat=${lat}&lon=${long}&units=${units}&appid=${APIKEY}`;
 

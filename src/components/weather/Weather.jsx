@@ -14,7 +14,8 @@ export const Weather = ({geolocation, setBackgroundImg}) => {
 	const {data, loading, error} = useFetch(lat, long);
 	const { name, sys, weather, main } = !!data && data; 
 
-	if(!loading) setBackgroundImg(weatherConditions[weather[0].main].bckgImg);
+	if(!loading && weatherConditions.hasOwnProperty(weather[0].main)) 
+		setBackgroundImg(weatherConditions[weather[0].main].bckgImg);
 
 	useEffect(() => {}, [data]);
 	

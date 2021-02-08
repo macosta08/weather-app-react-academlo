@@ -23,4 +23,7 @@ export const weatherConditions = {
   Mist: {
     bckgImg: "url(./img/Mist.jpg)",
   },
+  Fog: {
+    bckgImg: "url(./img/Fog.jpg)",
+  },
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useFetch } from '../../hook/useFetch';
+import { useFetchWeather } from '../../hook/useFetchWeather';
 import { weatherConditions } from '../../utils/weatherConditions';
 import Spinner from 'react-bootstrap/Spinner';
 import './weather.css';
@@ -11,7 +11,7 @@ export const Weather = ({geolocation, setBackgroundImg}) => {
 	const [typeTemp, setTypeTemp] = useState(' °C')
 	const {lat, long} = geolocation;
 
-	const {data, loading, error} = useFetch(lat, long);
+	const {data, loading, error} = useFetchWeather(lat, long);
 	const { name, sys, weather, main } = !!data && data; 
 
 	if(!loading && weatherConditions.hasOwnProperty(weather[0].main)) 

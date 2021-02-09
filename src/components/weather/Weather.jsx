@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { weatherConditions } from '../../utils/weatherConditions';
 import { CheckInputTemp } from '../checkInputTemp/CheckInputTemp';
 import { IconWeather } from '../iconWeather/IconWeather';
 import './weather.css';
 
-export const Weather = ({country, city, temp, icon, weatherDescription, weatherName}) => {
-	const [backgroundImg, setBackgroundImg] = useState("blue");
+export const Weather = ({weatherData}) => {
+	const {name:city, 
+		   sys:{country}, 
+		   main:{temp}, 
+		   weather:[{icon,
+			         description: weatherDescription,
+					 main: weatherName}
+				   ]
+		  } = weatherData;
 
-    if(weatherConditions.hasOwnProperty(weatherName))
-   		setBackgroundImg(weatherConditions[weatherName].bckgImg);
-    
-  
+	const backgroundImg = weatherConditions.hasOwnProperty(weatherName) ? weatherConditions[weatherName].bckgImg : ""
 	return (
 		<div className="container-backg" style={{ backgroundImage: backgroundImg }}>
 			<div className='container-weather'>

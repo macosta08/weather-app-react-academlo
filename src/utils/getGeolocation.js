@@ -1,14 +1,12 @@
-export const Geolocation = ({ setGeolocation }) => {
-  function geoFindMe() {
-    let latitude;
-    let longitude;
+export const getGeolocation = ({ setGeolocation }) => {
+      
     function success(position) {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
       setGeolocation({
         lat: latitude,
         long: longitude,
-        anwersGeolocation: true,
+        answerGeo: true,
       });
     }
 
@@ -21,9 +19,5 @@ export const Geolocation = ({ setGeolocation }) => {
     } else {
       navigator.geolocation.getCurrentPosition(success, error);
     }
-
-    return;
-  }
-  const geo = geoFindMe();
-  return geo;
+  
 };
